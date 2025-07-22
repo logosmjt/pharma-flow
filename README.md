@@ -37,6 +37,10 @@ The project is structured using **DDD + Clean Architecture**:
     -repository
 ```
 
+## Database Design
+
+https://dbdiagram.io/d/rx-6879f79bf413ba350881eae5
+
 ## Technologies Used
 
 - **Languages**: Java, Kotlin
