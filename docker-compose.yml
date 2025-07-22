@@ -1,0 +1,19 @@
+services:
+  postgres:
+    image: postgres:16.4
+    environment:
+      - 'POSTGRES_DB=pharma-flow'
+      - 'POSTGRES_PASSWORD=secret'
+      - 'POSTGRES_USER=pgadmin'
+    ports:
+      - '54322:5432'
+    volumes:
+      - postgres_pharma:/var/lib/postgresql/data
+    healthcheck:
+      test: [ "CMD", "pg_isready", "-U", "pgadmin" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  postgres_pharma:

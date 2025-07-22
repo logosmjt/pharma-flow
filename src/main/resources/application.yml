@@ -1,0 +1,35 @@
+spring:
+  r2dbc:
+#    url: r2dbc:postgresql://localhost:54322/pharma-flow
+    url: r2dbc:pool:postgresql://localhost:54322/pharma-flow
+    username: pgadmin
+    password: secret
+
+  flyway:
+    enabled: true
+    url: jdbc:postgresql://localhost:54322/pharma-flow
+    username: pgadmin
+    password: secret
+    locations: classpath:db/migration
+    baseline-on-migrate: true
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    operations-sorter: method
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+logging:
+  level:
+    root: INFO
+    com.pharma: DEBUG
+    org.springframework.r2dbc: DEBUG
+    io.r2dbc.postgresql.QUERY: DEBUG
+    io.r2dbc.pool: DEBUG
